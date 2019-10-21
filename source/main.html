@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:300" rel="stylesheet">
+	
+	<!-- font-family:'Saira Extra Condensed', sans-serif; -->
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,500" rel="stylesheet">
+	<!-- font-family:'IBM Plex Sans', sans-serif; -->
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<!-- added to the assignment3.css -->
+	<link rel="stylesheet" type="text/css" href="Doppler.css">
+
+</head>
+
+<body onload="loadImages();startInterval();">
+	<header>
+		<div id="notDoppler">
+			<h1>Local Weather Six Hour Forecast</h1>
+			<h2>Northern California with doppler radar</h2>
+			<div id="searchBox">
+				<h3>Forecast for: </h3>
+				<input type="text" id="inputPlace">
+				<button onclick="makeCorsRequest()">Submit</button>
+			</div>
+			<div class="TimeIconTemperature" id="nowTemp">
+				<div id="thisHourSubtitles">
+					<div id="leftDivTime">
+					<h4>current</h4>
+					<h4 class="time">0PM</h4>
+					</div>
+					<div id="rightDivTemp">
+					<h5	 class="temperature" id="temperatureMobile">0°</h5>
+					</div>
+				</div>
+				<div class="oneIcon">
+					<img class="icon" src="../assets/clearsky.svg">
+				</div>
+				<h5 class="temperature" id="temperatureWeb">0°</h5>
+			</div>
+			<a class="arrow-icon" id="whiteArrow">
+				<span class="left-bar" onclick="goUp()"></span>
+				<span class="right-bar" onclick="goUp()"></span>
+			</a>
+		</div>
+
+		<div id="Doppler" >
+			<img src="../assets/DAX_Topo_Short.jpg" id="lowestMap" class="gray"/>
+			<img src="../assets/DAX_City_Short.gif" id="city"/>
+			<!--<img src="assets/DAX_N0R_0.gif" id="radar" /> !-->
+		</div>
+	</header>
+
+	<!-- <div id="debug">
+		<p id="debug1"></p>
+	</div> -->
+
+	<div id="nextFiveHourTemp">
+		<a class="arrow-icon" id="purpleArrow">
+			<span class="left-bar" id="page2left-bar" onclick="goDown()"></span>
+			<span class="right-bar" id="page2right-bar" onclick="goDown()"></span>
+		</a>
+		<div class="TimeIconTemperature">
+			<h4 class="time">1 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="../assets/clearsky.svg">
+			</div>
+			<h2 class="temperature">0°</h2>
+		</div>
+		<div class="TimeIconTemperature">
+			<h4 class="time">2 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="../assets/clearsky.svg">
+			</div>
+			<h2 class="temperature">0°</h2>
+		</div>
+		<div class="TimeIconTemperature">
+			<h4 class="time">3 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="../assets/clearsky.svg">
+			</div>
+			<h2 class="temperature">0°</h2>
+		</div>
+		<div class="TimeIconTemperature">
+			<h4 class="time">4 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="../assets/clearsky.svg">
+			</div>
+			<h2 class="temperature">0°</h2>
+		</div>
+		<div class="TimeIconTemperature">
+			<h4 class="time">5 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="../assets/clearsky.svg">
+			</div>
+			<!-- onerror="if (this.src != 'error.jpg') this.src = '../assets/clearsky.svg';" -->
+			<h2 class="temperature">0°</h2>
+		</div>
+	</div>
+
+	<!-- execute the Javascript for this page -->
+	<script src="collectPastDoppler.js"></script>
+	<script src="makeRequest.js"></script>
+
+
+</body>
+</html>
